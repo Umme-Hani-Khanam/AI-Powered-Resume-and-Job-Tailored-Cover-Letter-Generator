@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme { --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif; --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; font-family: var(--font-sans); color: #172554; background: #f8fafc; }
+* { box-sizing: border-box; }
+.bg-teal-600 { background-color: #4f46e5 !important; }.bg-teal-700 { background-color: #4338ca !important; }.bg-teal-50 { background-color: #eef2ff !important; }.text-teal-700, .text-teal-800 { color: #4f46e5 !important; }.text-teal-300 { color: #a7f3d0 !important; }.border-teal-300 { border-color: #c4b5fd !important; }.focus\:ring-teal-500:focus { --tw-ring-color: #8b5cf6 !important; }.focus\:border-teal-600:focus { border-color: #6366f1 !important; }.focus\:ring-teal-100:focus { --tw-ring-color: #e0e7ff !important; }
+.resumate-gradient { background: radial-gradient(circle at 88% 12%, rgba(139,92,246,.18), transparent 25rem), radial-gradient(circle at 12% 92%, rgba(16,185,129,.13), transparent 24rem), #f8fafc; }
+.resumate-card { border: 1px solid #e2e8f0; border-radius: 1.25rem; background: rgba(255,255,255,.92); box-shadow: 0 14px 38px rgba(49,46,129,.08); }
+.resume-preview { color: #1e293b; font-family: Arial, sans-serif; font-size: .83rem; line-height: 1.45; }
+.resume-preview header { border-bottom: 2px solid #4f46e5; padding-bottom: .8rem; }
+.resume-preview h1 { margin: 0; color: #0f172a; font-family: Georgia, serif; font-size: 1.85rem; line-height: 1.1; }
+.resume-preview .resume-role { margin: .2rem 0; color: #4f46e5; font-size: .95rem; font-weight: 700; }
+.resume-preview .resume-contact, .resume-preview .resume-meta { margin: .2rem 0; color: #475569; font-size: .76rem; }
+.resume-preview h2 { margin: 1.15rem 0 .4rem; border-bottom: 1px solid #cbd5e1; padding-bottom: .2rem; color: #0f172a; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.resume-entry { break-inside: avoid; margin-bottom: .7rem; }.resume-entry-line { display: flex; justify-content: space-between; gap: .75rem; }.resume-bullet { margin: .14rem 0 .14rem .6rem; }.resume-skill { margin: .25rem 0; }
+label { font-size: .75rem; font-weight: 600; color: #475569; } label input, label textarea { display: block; width: 100%; border: 1px solid #cbd5e1; border-radius: .5rem; padding: .45rem .6rem; font-size: .875rem; font-weight: 400; color: #0f172a; } label textarea { min-height: 2.5rem; }
+@media print { body * { visibility: hidden; } .resume-preview, .resume-preview * { visibility: visible; } .resume-preview { position: absolute; inset: 0; box-shadow: none; } }

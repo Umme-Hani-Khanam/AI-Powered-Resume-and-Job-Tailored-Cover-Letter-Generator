@@ -1,0 +1,8 @@
+import Navigation from '../components/Navigation'
+import { useAuth } from '../context/AuthContext'
+import { Link } from 'react-router-dom'
+
+export default function DashboardPage() {
+  const { user } = useAuth(); const name = user?.email?.split('@')[0] || 'there'
+  return <><Navigation /><main className="resumate-gradient min-h-[calc(100vh-73px)] px-5 py-12"><div className="mx-auto max-w-6xl"><p className="text-sm font-bold text-violet-700">Your momentum space</p><h1 className="mt-2 font-display text-4xl font-extrabold tracking-tight text-indigo-950">Hey, {name}.</h1><p className="mt-3 max-w-xl text-lg text-slate-600">Turn what you have done into a resume that feels clear, credible, and ready to send.</p><div className="mt-10 grid gap-5 md:grid-cols-[1.35fr_.65fr]"><section className="resumate-card p-7"><p className="text-sm font-bold text-violet-700">Resume builder</p><h2 className="mt-2 font-display text-2xl font-extrabold text-indigo-950">Start messy. We will help you sort it.</h2><p className="mt-3 leading-7 text-slate-600">Paste roles, projects, education, skills, and wins. Resumate only organizes what you provide and flags anything that needs your eyes.</p><Link to="/resumes" className="mt-6 inline-flex rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 px-5 py-3 font-bold text-white shadow-lg shadow-indigo-200">Build my resume</Link></section><aside className="rounded-2xl bg-gradient-to-br from-indigo-950 to-violet-800 p-7 text-white"><p className="text-sm font-bold text-emerald-200">Account</p><p className="mt-4 break-all text-sm text-indigo-100">{user?.email}</p><div className="mt-8 border-t border-indigo-700 pt-5 text-sm text-indigo-200">Signed in securely with Supabase Auth</div></aside></div></div></main></>
+}
