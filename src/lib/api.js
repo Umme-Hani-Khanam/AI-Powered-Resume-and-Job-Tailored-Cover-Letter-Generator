@@ -1,6 +1,6 @@
 import { supabase } from './supabase'
 import { friendlyError } from './errors'
-const baseUrl = (import.meta.env.VITE_API_URL || 'http://localhost:3001').replace(/\/$/, '')
+const baseUrl = ''
 export async function api(path, options = {}) {
   const { data } = await supabase.auth.getSession(); const token = data.session?.access_token
   if (!token) { const error = new Error('Your session has ended. Please log in again.'); error.status = 401; throw error }

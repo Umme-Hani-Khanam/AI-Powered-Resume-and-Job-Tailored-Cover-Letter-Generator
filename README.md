@@ -76,7 +76,9 @@ GEMINI_MODEL=gemini-2.5-flash
 
 All protected endpoints require `Authorization: Bearer <Supabase access token>`. The server verifies the token with Supabase before processing it and creates a per-request Supabase client with that same token, so RLS—not a client-supplied user ID—governs reads and writes.
 
-Deploy the frontend and Express API as separate services (or configure a single host with a proxy). In the frontend host, set `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, and `VITE_API_URL` at build time. In the API host, set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `GEMINI_API_KEY`, `GEMINI_MODEL`, `CLIENT_ORIGIN`, `PORT`, and `NODE_ENV=production`. Set `CLIENT_ORIGIN` to the exact deployed frontend origin; do not use a wildcard.
+The Vercel deployment serves the Vite frontend and Express API from the same origin. `api/index.js` exports the Express app, and `vercel.json` rewrites `/api/*` requests to that function. The frontend uses same-origin `/api` requests in both environments; Vite proxies those paths to `localhost:3001` during local development.
+
+Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` for the frontend build, and set `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `GEMINI_API_KEY`, and `CLIENT_ORIGIN` for the API function. Use the same Supabase project URL and publishable key for both frontend and server variables. Set `CLIENT_ORIGIN` to the exact production frontend origin; do not use a wildcard. Vercel supplies `PORT` and `NODE_ENV`; `GEMINI_MODEL` is optional and defaults to `gemini-2.5-flash`.
 
 ## Resume workflow
 
